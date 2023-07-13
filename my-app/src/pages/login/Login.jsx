@@ -1,4 +1,5 @@
 import "./login.css";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -14,10 +15,16 @@ export default function Login() {
           <div className="loginBox">
             <input placeholder="Email address" className="loginInput" />
             <input placeholder="Password" className="loginInput" />
-            <button className="loginButton">Login</button>
+            <button className="loginButton">
+              <Link to={"/"} className="link">
+                Login
+              </Link>
+            </button>
             <span className="loginForget">Forget Password?</span>
             <button className="loginRegisterButton">
-              Create a New Account
+              <Link to={"/register"} className="link">
+                Create a New Account
+              </Link>
             </button>
           </div>
         </div>

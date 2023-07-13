@@ -1,5 +1,4 @@
 import "./post.css";
-import { MoreVert } from "@mui/icons-material";
 import { Users } from "../../dummyData";
 import { useState } from "react";
 
@@ -24,14 +23,15 @@ export default function Post({ post }) {
             <span className="postUsername">
               {Users.filter((u) => u.id === post.userId)[0].username}
             </span>
-            <span className="postDate">{post.date}</span>
-          </div>
-          <div className="postTopRight">
-            <MoreVert />
+            <span className="postDate">{post.currentDate}</span>
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{post?.desc}</span>
+          <div className="postText">{post?.title}</div>
+          <div className="postText">{post?.ingredients}</div>
+          <n3 className="postText">{post?.desc}</n3>
+          <div className="postText">{post?.difficulty}</div>
+          <div className="postText">{post?.duration}</div>
           <img className="postImg" src={post.photo} alt="" />
         </div>
         <div className="postBottom">
@@ -44,9 +44,7 @@ export default function Post({ post }) {
             />
             <span className="postLikeCounter">{like} people like it</span>
           </div>
-          <div className="postBottomRight">
-            <span className="postCommentText">{post.comment} comments</span>
-          </div>
+          <div className="postBottomRight"></div>
         </div>
       </div>
     </div>

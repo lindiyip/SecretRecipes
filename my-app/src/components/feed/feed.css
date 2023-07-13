@@ -1,5 +1,8 @@
 .feed {
-  flex: 5.5;
+  flex: 6;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+  top: 50px;
 }
 
 .feedWrapper {

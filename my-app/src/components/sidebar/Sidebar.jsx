@@ -1,11 +1,13 @@
 import "./sidebar.css";
-import { RssFeed, Chat, VideoLibrary, Group, Event } from "@mui/icons-material";
+import Share from "../share/Share";
+// import { RssFeed, Chat, VideoLibrary, Group, Event } from "@mui/icons-material";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
-        <ul className="sidebarList">
+        <Share />
+        {/* <ul className="sidebarList">
           <li className="sidebarListItem">
             <RssFeed className="sidebarIcon" />
             <span className="sidebarListItemText">Feed</span>
@@ -26,7 +28,7 @@ export default function Sidebar() {
             <Event className="sidebarIcon" />
             <span className="sidebarListItemText">Events</span>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
