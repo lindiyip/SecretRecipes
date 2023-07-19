@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const processUid = require("../middlewares/process-uid.middleware");
+
 const {
   create,
   readAll,
@@ -8,6 +10,8 @@ const {
   updateOne,
   deleteOne,
 } = require("../controllers/entry-controller");
+
+router.use("/", processUid);
 
 router.get("/", readAll);
 router.post("/", create);
