@@ -10,7 +10,7 @@ router.put("/:id", async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         req.body.password = await bcrypt.hash(req.body.password, salt);
       } catch (err) {
-        return res.status(500).json(err);
+        return res.status(501).json(err);
       }
     }
     try {

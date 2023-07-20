@@ -1,6 +1,6 @@
 require("dotenv").config();
-// require("./routes");
-// require("./models");
+require("./routes");
+require("./models");
 // require("./bootstrap");
 
 const express = require("express");
@@ -24,6 +24,7 @@ app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 
+const port = process.env.PORT || 8800;
 app.listen(8800, () => {
-  console.log("Backend server running!");
+  console.log(`Listening to port ${port}`);
 });
