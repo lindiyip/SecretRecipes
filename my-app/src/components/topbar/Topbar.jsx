@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./topbar.css";
 import { Search, Person, Home, Login } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Topbar() {
+  const { user } = useContext(AuthContext);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">Secret Recipes</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">Secret Recipes</span>
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
@@ -22,7 +28,7 @@ export default function Topbar() {
           </Link>
         </div>
         <div className="topbarIcons">
-          <Link to={"/profile"} className="topbarIconItem">
+          <Link to={"/profile/:userId"} className="topbarIconItem">
             <Person />
           </Link>
         </div>

@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    // uid: {
-    //   type: String,
-    //   required: true,
-    // },
     createdAt: {
       type: Date,
       default: Date.now(),
@@ -40,12 +36,12 @@ const UserSchema = new Schema(
     desc: {
       type: String,
     },
-    // city: {
-    //   type: String,
-    // },
-    // from: {
-    //   type: String,
-    // },
+    city: {
+      type: String,
+    },
+    type: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -1,11 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-// import UserContextWrapper from "./contexts/UserContext";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 function App() {
   return (
     <div>
-      <Outlet />
+      <AuthContextProvider>
+        <Outlet />
+      </AuthContextProvider>
     </div>
   );
 }

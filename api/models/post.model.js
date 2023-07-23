@@ -8,7 +8,22 @@ const PostSchema = new Schema(
       type: String,
       required: true,
     },
+    title: {
+      type: String,
+    },
+    currentDate: {
+      type: String,
+    },
+    ingredients: {
+      type: String,
+    },
     desc: {
+      type: String,
+    },
+    difficulty: {
+      type: Number,
+    },
+    duration: {
       type: String,
     },
     img: {

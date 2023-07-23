@@ -25,6 +25,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 
 const port = process.env.PORT || 8800;
-app.listen(8800, () => {
+app.listen(port, () => {
   console.log(`Listening to port ${port}`);
 });

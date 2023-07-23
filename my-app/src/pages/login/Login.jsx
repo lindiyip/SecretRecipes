@@ -1,7 +1,27 @@
+import { useContext, useRef } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginCall } from "../apiCalls";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Login() {
+  const email = useRef();
+  const password = useRef();
+  const { user, isFetching, error, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    loginCall(
+      { email: email.current.value, password: password.current.value },
+      dispatch
+    );
+    console.log(user);
+    if (user) {
+      navigate("/");
+    }
+  };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -12,21 +32,38 @@ export default function Login() {
           </span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
-            <input placeholder="Email address" className="loginInput" />
-            <input placeholder="Password" className="loginInput" />
-            <button className="loginButton">
-              <Link to={"/"} className="link">
-                Login
-              </Link>
+          <form
+            className="loginBox"
+            onSubmit={handleClick}
+            disabled={isFetching}
+          >
+            <input
+              placeholder="Email address"
+              type="email"
+              required
+              className="loginInput"
+              ref={email}
+            />
+            <input
+              placeholder="Password"
+              type="password"
+              required
+              className="loginInput"
+              ref={password}
+              minLength="6"
+            />
+            {/* <Link to={"/"} className="link"> */}
+            <button className="loginButton" type="submit" disabled={isFetching}>
+              {isFetching ? "Loading" : "Login"}
             </button>
+            {/* </Link> */}
             <span className="loginForget">Forget Password?</span>
             <button className="loginRegisterButton">
               <Link to={"/register"} className="link">
-                Create a New Account
+                {isFetching ? "Loading" : "Create a New Account"}
               </Link>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
